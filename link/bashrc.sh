@@ -36,7 +36,7 @@ shopt -s checkwinsize
 ########################################
 export EDITOR='subl -w'
 export HISTTIMEFORMAT="%D %T "
-export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin:$PATH
 export REPODIR=~/dev
 
 ########################################
