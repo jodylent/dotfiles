@@ -52,9 +52,9 @@ if [ -f ~/.bash_alias ]; then
     . ~/.bash_alias
 fi
 
-# Private aliases
-if [ -f ~/.private_alias ]; then
-    . ~/.private_alias
+# Private aliases, possibly more than one file
+if [ -d ~/.dotfiles/private ]; then
+    . ~/.dotfiles/private/*alias*.sh
 fi
 
 # enable programmable completion features (you don't need to enable
