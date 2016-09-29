@@ -1,0 +1,35 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Private dotfiles #
+######################
+private
+private/*
+
+# Backup dotfiles #
+######################
+backup
+backup/*
+
+# EVERYTHING except specified files/folders #
+# Yes this is redundant overkill #
+# It's here in case of copy/pasta #
+######################
+!.gitignore
+!LICENSE
+!/copy
+!/copy/*
+!/link
+!/link/*
+!/script
+!/script/*
+!/script/setup
+!/script/setup/*
+/*
