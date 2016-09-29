@@ -22,6 +22,7 @@ backup/*
 # Yes this is redundant overkill #
 # It's here in case of copy/pasta #
 ######################
+/*
 !.gitignore
 !LICENSE
 !/copy
@@ -32,4 +33,3 @@ backup/*
 !/script/*
 !/script/setup
 !/script/setup/*
-/*
