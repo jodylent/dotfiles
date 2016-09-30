@@ -131,6 +131,9 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 # Stop iTunes from responding to the keyboard media keys
 launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
+# Key Repeat to fastest in macOS 10.12 (Sierra)
+defaults write NSGlobalDomain KeyRepeat -int 2
+
 ####################
 # TRACKPAD
 ####################
