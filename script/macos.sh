@@ -59,6 +59,9 @@ defaults write com.apple.dock minimize-to-application -bool true
 # Don’t animate opening applications from the Dock
 defaults write com.apple.dock launchanim -bool false
 
+# No bouncing
+defaults write com.apple.dock no-bouncing -bool true
+
 
 ####################
 # FINDER
