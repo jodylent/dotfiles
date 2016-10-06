@@ -19,6 +19,36 @@
 #   import: `bash ${STRAPDIR}/karabiner-import.sh`
 /Applications/Karabiner.app/Contents/Library/bin/karabiner set remap.pc_application2optionR 1
 
+
+####################
+# Karabiner-Elements
+####################
+
+# Karabiner only works on mac OS 10.9-11, not on Sierra yet, so we use the beta/non-pretty dev product
+# https://pqrs.org/osx/karabiner/
+mkdir -p ~/.karabiner.d/configuration
+cat > ~/.karabiner.d/configuration/karabiner.json << EOF
+{
+    "profiles": [
+        {
+            "name": "MS_ComfortCurve4000",
+            "selected": true,
+            "simple_modifications": {
+                "caps_lock": "left_control",
+                "left_option": "left_command",
+                "left_command": "left_option",
+                "right_option": "right_command",
+                "application" : "right_option"
+            }
+        }
+    ]
+}
+EOF
+curl https://pqrs.org/latest/karabiner-elements-latest.dmg /tmp/
+open /tmp/Karabiner-Elements*dmg
+# Installs to:
+# /Applications/Karabiner-Elements.app/Contents/MacOS/Karabiner-Elements
+
 ####################
 # Spectacle
 ####################
