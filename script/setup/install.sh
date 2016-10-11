@@ -9,13 +9,19 @@
 
 mkdir -p ~/.dotfiles/backup
 
-FILES_TO_LINK=`ls ~/.dotfiles/link`
-for REAL_FILE in ${FILES_TO_LINK}; do
-    # Get name, not name.sh
-    filename="${REAL_FILE%.*}"
-    echo "linking  ~/.dotfiles/link/${REAL_FILE} to ~/.${filename}"
-    # Move existing to backup
-    [ -f ~/.${filename} ] && mv ~/.${filename} ~/.dotfiles/backup/${filename}
-    # Link it
-    ln -sf ~/.dotfiles/link/${REAL_FILE} ~/.${filename}
-done
+function symlink_dirs() {
+    SOURCE_DIR=$1
+    TARGET_DIR=$2
+    FILES_TO_LINK=`ls ${SOURCE_DIR}`
+    for REAL_FILE in ${FILES_TO_LINK}; do
+        # Get name, not name.sh
+        filename="${REAL_FILE%.*}"
+        echo "linking  ${SOURCE_DIR}/${REAL_FILE} to ${TARGET_DIR}/.${filename}"
+        # Move existing to backup
+        [ -f ~/.${filename} ] && mv ~/.${filename} ~/.dotfiles/backup/${filename}
+        # Link it
+        ln -sf ${SOURCE_DIR}/${REAL_FILE} ${TARGET_DIR}/.${filename}
+    done
+}
+
+symlink_dirs ~/.dotfiles/link ~

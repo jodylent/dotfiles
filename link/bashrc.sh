@@ -54,7 +54,7 @@ fi
 
 # Private aliases, possibly more than one file
 if [ -d ~/.dotfiles/private ]; then
-    . ~/.dotfiles/private/*alias*.sh
+    . ~/.dotfiles/private/*alias*
 fi
 
 # enable programmable completion features (you don't need to enable
