@@ -54,7 +54,7 @@ fi
 
 # Private aliases, possibly more than one file
 if [ -d ~/.dotfiles/private ]; then
-    PRIVATE_DOTFILES=`ls -f .dotfiles/private/|grep -v "\.$"`
+    PRIVATE_DOTFILES=`ls -f ~/.dotfiles/private/|grep -v "\.$"`
     for DOTFILE in $PRIVATE_DOTFILES; do
         . ~/.dotfiles/private/${DOTFILE}
     done
