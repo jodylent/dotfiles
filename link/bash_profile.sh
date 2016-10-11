@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ########################################
 # Jody Lent
-# ~/.bash_profile
+# ~/.dotfiles/link/bash_profile.sh
 # The personal initialization file, executed for login shells
 ########################################
 

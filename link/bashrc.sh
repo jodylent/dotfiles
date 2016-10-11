@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ########################################
 # Jody Lent
-# ~/.bashrc
+# ~/.dotfiles/link/bashrc.sh
 # The individual per-interactive-shell startup file
 ########################################
 
@@ -54,7 +54,10 @@ fi
 
 # Private aliases, possibly more than one file
 if [ -d ~/.dotfiles/private ]; then
-    . ~/.dotfiles/private/*alias*
+    PRIVATE_DOTFILES=`ls -f .dotfiles/private/|grep -v "\.$"`
+    for DOTFILE in $PRIVATE_DOTFILES; do
+        . ~/.dotfiles/private/${DOTFILE}
+    done
 fi
 
 # enable programmable completion features (you don't need to enable

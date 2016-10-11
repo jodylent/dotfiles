@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ########################################
 # Jody Lent
-# ~/.bash_alias
+# ~/.dotfiles/link/bash_alias.sh
 # Aliases sourced into individual per-interactive-shell startup file
 ########################################
 
@@ -12,7 +12,8 @@
 #### OS ALIASES ####
 alias ll='ls -lGh $@'
 alias p4='ping 4.2.2.2'
-source ~/.dotfiles/private/*repos*.sh
+# Addressed in bashrch.sh, as this doesn't load properly
+# source ~/.dotfiles/private/*repos*.sh
 alias repofresh='~/.dotfiles/script/refresh_repos.sh'
 alias resource='source ~/.bash_profile'
 
