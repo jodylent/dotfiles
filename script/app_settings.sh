@@ -8,6 +8,8 @@
 # https://github.com/lra/mackup/tree/master/doc
 ########################################
 
+echo "#### APP SETTINGS BEGINNING #####"
+
 
 ####################
 # Karabiner
@@ -101,3 +103,4 @@ else
 fi
 # Symlink `subl` into /usr/local/bin
 ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+echo "#### APP SETTINGS COMPLETE #####"

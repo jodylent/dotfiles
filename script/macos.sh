@@ -9,6 +9,7 @@
 # http://ss64.com/osx/syntax-defaults.html
 ########################################
 
+echo "#### MAC SETTINGS BEGINNING #####"
 
 ####################
 # GlobalPreferences
@@ -24,7 +25,6 @@ else
     scutil --set ComputerName $NEW_HOSTNAME
     scutil --set HostName $NEW_HOSTNAME
     scutil --set LocalHostName $NEW_HOSTNAME
-    defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $NEW_HOSTNAME
 fi
 
 # Login Message
@@ -206,7 +206,7 @@ defaults write com.apple.screencapture type -string "png"
 ####################
 
 # Disable sleep
-systemsetup -setcomputersleep Never
+sudo systemsetup -setcomputersleep Never
 
 # Empty Trash securely by default
 defaults write com.apple.finder EmptyTrashSecurely -bool true
@@ -223,4 +223,6 @@ defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
+
+echo "#### MAC SETTINGS COMPLETE #####"
 
