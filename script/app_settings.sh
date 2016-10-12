@@ -50,8 +50,7 @@ wget -O /tmp/karabiner-elements-latest.dmg https://pqrs.org/latest/karabiner-ele
 open /tmp/karabiner-elements-latest.dmg
 # Installs to:
 # /Applications/Karabiner-Elements.app/Contents/MacOS/Karabiner-Elements
-# alias ke-on='/Applications/Karabiner-Elements.app/Contents/MacOS/Karabiner-Elements'
-# alias ke-off='killall Karabiner-Elements'
+# alias openke='/Applications/Karabiner-Elements.app/Contents/MacOS/Karabiner-Elements'
 
 
 ####################
