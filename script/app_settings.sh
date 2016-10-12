@@ -91,3 +91,5 @@ defaults write com.divisiblebyzero.Spectacle UndoLastMove -data 62706c6973743030
 # Install Sublime Text settings
 if [ -z ${SUBLIME_SETTINGS_PATH+x} ]; then echo "SUBLIME_SETTINGS_PATH is unset"; exit 0; else echo "SUBLIME_SETTINGS_PATH is set to '$SUBLIME_SETTINGS_PATH'"; fi
 cp ${SUBLIME_SETTINGS_PATH} ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+# Symlink `subl` into /usr/local/bin
+ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl

@@ -24,4 +24,5 @@ alias gbc="git status | awk '{print \$3}' | head -n 1 | pbcopy"
 alias gboth='git checkout master && git pull origin master && git checkout develop && git pull origin develop'
 
 #### APP ALIASES ####
+alias subldot='/usr/local/bin/subl --project ~/.dotfiles/copy/dotfiles.sublime-project'
 alias veracrypt='/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text'

@@ -27,6 +27,7 @@ backup/*
 !LICENSE
 !/copy
 !/copy/*
+/copy/*.sublime-workspace
 !/link
 !/link/*
 !/script
