@@ -44,8 +44,8 @@ cat > ~/.karabiner.d/configuration/karabiner.json << EOF
     ]
 }
 EOF
-curl https://pqrs.org/latest/karabiner-elements-latest.dmg /tmp/
-open /tmp/Karabiner-Elements*dmg
+wget -O /tmp/karabiner-elements-latest.dmg https://pqrs.org/latest/karabiner-elements-latest.dmg
+echo "PLEASE RUN 'open /tmp/Karabiner-Elements*dmg'"
 # Installs to:
 # /Applications/Karabiner-Elements.app/Contents/MacOS/Karabiner-Elements
 
@@ -89,7 +89,12 @@ defaults write com.divisiblebyzero.Spectacle UndoLastMove -data 62706c6973743030
 ####################
 
 # Install Sublime Text settings
-if [ -z ${SUBLIME_SETTINGS_PATH+x} ]; then echo "SUBLIME_SETTINGS_PATH is unset"; exit 0; else echo "SUBLIME_SETTINGS_PATH is set to '$SUBLIME_SETTINGS_PATH'"; fi
-cp ${SUBLIME_SETTINGS_PATH} ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+if [ -z ${SUBLIME_SETTINGS_PATH+x} ]; then
+    echo "SUBLIME_SETTINGS_PATH is unset"
+    exit 0
+else
+    echo "SUBLIME_SETTINGS_PATH is set to '$SUBLIME_SETTINGS_PATH'"
+    cp ${SUBLIME_SETTINGS_PATH} ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+fi
 # Symlink `subl` into /usr/local/bin
 ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
