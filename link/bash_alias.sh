@@ -22,8 +22,8 @@ function enable_ntfs() {
     VOLUME_UUID=`diskutil info \`diskutil list|grep -e "${VOLUME_NAME}"|awk '{print $NF}'\`|grep UUID|awk '{print $NF}'`
     FSTAB_STR="UUID=${VOLUME_UUID} none ntfs rw,auto,nobrowse"
     sudo cat ${FSTAB_STR} > /etc/fstab
-    diskutil umount ${VOLUME_NAME}
-    diskutil mount ${VOLUME_NAME}
+    diskutil umount "${VOLUME_NAME}"
+    diskutil mount "${VOLUME_NAME}"
 }
 
 #### GIT ALIASES ####
