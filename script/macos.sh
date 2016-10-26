@@ -19,7 +19,7 @@ echo "#### MAC SETTINGS BEGINNING #####"
 
 if [ -z ${NEW_HOSTNAME+x} ]; then
     echo "NEW_HOSTNAME is unset"
-    exit 1
+    # exit 1
 else
     echo "NEW_HOSTNAME is set to '$NEW_HOSTNAME'"
     scutil --set ComputerName $NEW_HOSTNAME
