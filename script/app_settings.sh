@@ -33,14 +33,41 @@ cat > ~/.karabiner.d/configuration/karabiner.json << EOF
 {
     "profiles": [
         {
+            "devices": [
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 628,
+                        "vendor_id": 1452
+                    },
+                    "ignore": true,
+                    "keyboard_type": 0
+                }
+            ],
+            "fn_function_keys": {
+                "f1": "vk_consumer_brightness_down",
+                "f10": "mute",
+                "f11": "volume_down",
+                "f12": "volume_up",
+                "f2": "vk_consumer_brightness_up",
+                "f3": "vk_mission_control",
+                "f4": "vk_launchpad",
+                "f5": "vk_consumer_illumination_down",
+                "f6": "vk_consumer_illumination_up",
+                "f7": "vk_consumer_previous",
+                "f8": "vk_consumer_play",
+                "f9": "vk_consumer_next"
+            },
             "name": "MS_ComfortCurve4000",
             "selected": true,
             "simple_modifications": {
-                "caps_lock": "left_control",
-                "left_option": "left_command",
-                "left_command": "left_option",
-                "right_option": "right_command",
                 "application" : "right_option"
+                "caps_lock": "left_control",
+                "left_command": "left_option",
+                "left_option": "left_command",
+                "right_option": "right_command",
             }
         }
     ]
