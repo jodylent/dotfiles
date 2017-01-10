@@ -29,7 +29,7 @@ echo "#### APP SETTINGS BEGINNING #####"
 # Karabiner only works on mac OS 10.9-11, not on Sierra yet, so we use the beta/non-pretty dev product
 # https://pqrs.org/osx/karabiner/
 mkdir -p ~/.karabiner.d/configuration
-cat > ~/.karabiner.d/configuration/karabiner.json << EOF
+cat > ~/.config/karabiner/karabiner.json << EOF
 {
     "profiles": [
         {
