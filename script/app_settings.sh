@@ -126,15 +126,16 @@ if [ -z ${SUBLIME_SETTINGS_PATH+x} ]; then
     echo "SUBLIME_SETTINGS_PATH is unset"
     exit 0
 else
+    # Packages and settings live in:
+    # ~/Library/Application\ Support/Sublime\ Text*/Packages/{,User}
     echo "SUBLIME_SETTINGS_PATH is set to '$SUBLIME_SETTINGS_PATH'"
-    cp ${SUBLIME_SETTINGS_PATH} ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
-fi
-
-# Packages
-cd ~/Library/Application\ Support/Sublime\ Text\ 3/
-if [ -d ~/Dropbox/scripts/sync/sublime/ ]; then
-    rm -r Packages
-    ln -sf ~/Dropbox/scripts/sync/sublime/Packages
+    if [ -d ${SUBLIME_SETTINGS_PATH} ]; then
+        rm -r ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
+        ln -sf ${SUBLIME_SETTINGS_PATH}/Packages ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
+    else
+        echo "SUBLIME_SETTINGS_PATH is set but does not exist."
+        exit 1
+    fi
 fi
 
 # Symlink `subl` into /usr/local/bin
