@@ -30,7 +30,7 @@ fi
 # Login Message
 if [ -z ${LOCKSCREEN_MSG+x} ]; then
     echo "LOCKSCREEN_MSG is unset";
-else   
+else
     echo "LOCKSCREEN_MSG is set to '$LOCKSCREEN_MSG'";
     defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText $LOCKSCREEN_MSG
 fi
@@ -53,7 +53,7 @@ defaults write com.apple.dock expose-group-by-app -bool false
 # Set the icon size of Dock items to 36 pixels
 defaults write com.apple.dock tilesize -int 36
 
-# Minimize windows into their application’s icon 
+# Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
 
 # Don’t animate opening applications from the Dock
@@ -100,6 +100,12 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
+# Expand save path
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Bounce Finder
+killall Finder
 
 ####################
 # MISSON CONTROL
@@ -159,6 +165,9 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeF
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -bool false
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerHorizSwipeGesture -bool false
 
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
+
+
 # natural scroll
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
@@ -202,6 +211,18 @@ defaults write com.apple.screencapture type -string "png"
 
 
 ####################
+# TERMINAL
+####################
+
+# Only use UTF-8 in Terminal.app
+defaults write com.apple.terminal StringEncodings -array 4
+
+# Set profiles
+defaults write com.apple.Terminal "Default Window Settings" -data "Homebrew"
+defaults write com.apple.Terminal "Startup Window Settings" -data "Homebrew"
+
+
+####################
 # OTHER
 ####################
 
@@ -212,7 +233,7 @@ sudo systemsetup -setcomputersleep Never
 defaults write com.apple.finder EmptyTrashSecurely -bool true
 
 # Enable Debug Menu in Reminders (force sync there!)
-defaults write com.apple.reminders RemindersDebugMenu -boolean true 
+defaults write com.apple.reminders RemindersDebugMenu -boolean true
 
 # Disable Chrome backswipe on trackpads
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
@@ -221,8 +242,15 @@ defaults write com.google.Chrome.canary AppleEnableSwipeNavigateWithScrolls -boo
 # Show battery status in menu
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
-# Only use UTF-8 in Terminal.app
-defaults write com.apple.terminal StringEncodings -array 4
+# Show Bluetooth in menu bar
+defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Bluetooth.menu"
+
+# Show volume in menu bar
+defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
+
+
+####################
+# CLEANUP
+####################
 
 echo "#### MAC SETTINGS COMPLETE #####"
-
