@@ -52,11 +52,17 @@ if [ -f ~/.bash_alias ]; then
     . ~/.bash_alias
 fi
 
-# Private aliases, possibly more than one file
+# Private aliases, expecting multiple files and folders
 if [ -d ~/.dotfiles/private ]; then
-    PRIVATE_DOTFILES=`ls -pf ~/.dotfiles/private/ | grep -v "/"`
-    for DOTFILE in $PRIVATE_DOTFILES; do
-        . ~/.dotfiles/private/${DOTFILE}
+    # Loop folders
+    PRIVATE_FOLDERS=`ls -p ~/.dotfiles/private | grep -e "/$"`
+    for FOLDER in ${PRIVATE_FOLDERS}; do
+        # Loop files in folder
+        unset PRIVATE_DOTFILES
+        PRIVATE_DOTFILES=`ls -pf ~/.dotfiles/private/${FOLDER%?} | grep -v "/"`
+        for DOTFILE in ${PRIVATE_DOTFILES}; do
+            . ~/.dotfiles/private/${FOLDER%?}/${DOTFILE}
+        done
     done
 fi
 
@@ -64,9 +70,9 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
