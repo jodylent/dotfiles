@@ -14,6 +14,7 @@ echo "#### APP SETTINGS BEGINNING #####"
 ####################
 # Login items
 ####################
+
 osascript -e 'tell application "System Events" to make login item at end with properties {path:"/path/to/itemname", hidden:false}' > ~/.dotfiles/backup/list_loginitems.txt
 # Add items (commented but left for future use)
 # osascript -e 'tell application "System Events" to make login item at end with properties {path:"/path/to/itemname", hidden:false}'
@@ -98,6 +99,7 @@ osascript -e 'tell application "System Events" to make login item at end with pr
 ####################
 # MacID
 ####################
+
 defaults write com.kanechesire.MacIDOSX MIDGlobalLockScreenShortcut    -data 62706c6973743030d40102030405061617582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a307080f55246e756c6cd3090a0b0c0d0e574b6579436f64655624636c6173735d4d6f646966696572466c616773102580021200100000d2101112135a24636c6173736e616d655824636c61737365735b4d415353686f7274637574a214155b4d415353686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d1181954726f6f74800108111a232d32373b414850576567696e737e879396a2abbdc0c50000000000000101000000000000001a000000000000000000000000000000c7
 defaults write com.kanechesire.MacIDOSX MIDGlobalSendClipboardShortcut -data 62706c6973743030d40102030405061617582476657273696f6e58246f626a65637473592461726368697665725424746f7012000186a0a307080f55246e756c6cd3090a0b0c0d0e574b6579436f64655624636c6173735d4d6f646966696572466c6167731009800212001c0000d2101112135a24636c6173736e616d655824636c61737365735b4d415353686f7274637574a214155b4d415353686f7274637574584e534f626a6563745f100f4e534b657965644172636869766572d1181954726f6f74800108111a232d32373b414850576567696e737e879396a2abbdc0c50000000000000101000000000000001a000000000000000000000000000000c7
 defaults write com.kanechesire.MacIDOSX SUHasLaunchedBefore -bool true
@@ -122,6 +124,7 @@ osascript -e 'tell application "System Events" to make login item at end with pr
 # SublimeText
 ####################
 
+SUBLIME_SETTINGS_PATH=~/Dropbox/scripts/sync/sublime
 killall Sublime\ Text
 
 # Install Sublime Text settings
