@@ -28,9 +28,14 @@ echo "#### APP SETTINGS BEGINNING #####"
 
 # Karabiner only works on mac OS 10.9-11, not on Sierra yet, so we use the beta/non-pretty dev product
 # https://pqrs.org/osx/karabiner/
-mkdir -p ~/.karabiner.d/configuration
+mkdir -p ~/.config/karabiner
 cat > ~/.config/karabiner/karabiner.json << EOF
 {
+    "global": {
+        "check_for_updates_on_startup": true,
+        "show_in_menu_bar": true,
+        "show_profile_name_in_menu_bar": false
+    },
     "profiles": [
         {
             "devices": [
@@ -42,32 +47,35 @@ cat > ~/.config/karabiner/karabiner.json << EOF
                         "product_id": 628,
                         "vendor_id": 1452
                     },
-                    "ignore": true,
-                    "keyboard_type": 0
+                    "ignore": true
                 }
             ],
             "fn_function_keys": {
-                "f1": "vk_consumer_brightness_down",
+                "f1": "display_brightness_decrement",
                 "f10": "mute",
-                "f11": "volume_down",
-                "f12": "volume_up",
-                "f2": "vk_consumer_brightness_up",
-                "f3": "vk_mission_control",
-                "f4": "vk_launchpad",
-                "f5": "vk_consumer_illumination_down",
-                "f6": "vk_consumer_illumination_up",
-                "f7": "vk_consumer_previous",
-                "f8": "vk_consumer_play",
-                "f9": "vk_consumer_next"
+                "f11": "volume_decrement",
+                "f12": "volume_increment",
+                "f2": "display_brightness_increment",
+                "f3": "mission_control",
+                "f4": "launchpad",
+                "f5": "illumination_decrement",
+                "f6": "illumination_increment",
+                "f7": "rewind",
+                "f8": "play_or_pause",
+                "f9": "fastforward"
             },
-            "name": "MS_ComfortCurve4000",
+            "name": "MSComfortCurve4000",
             "selected": true,
             "simple_modifications": {
-                "application" : "right_option"
+                "application": "right_option",
                 "caps_lock": "left_control",
                 "left_command": "left_option",
                 "left_option": "left_command",
-                "right_option": "right_command",
+                "right_option": "right_command"
+            },
+            "virtual_hid_keyboard": {
+                "caps_lock_delay_milliseconds": 0,
+                "keyboard_type": "ansi"
             }
         }
     ]
