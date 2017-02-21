@@ -151,4 +151,5 @@ ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/loc
 ####################
 # Cleanup
 ####################
+git -C /Users/jlent/.dotfiles remote set-url origin git@github.com:jodylent/dotfiles.git
 echo "#### APP SETTINGS COMPLETE #####"
