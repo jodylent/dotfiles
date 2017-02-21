@@ -27,14 +27,6 @@ else
     scutil --set LocalHostName $NEW_HOSTNAME
 fi
 
-# Login Message
-if [ -z ${LOCKSCREEN_MSG+x} ]; then
-    echo "LOCKSCREEN_MSG is unset";
-else
-    echo "LOCKSCREEN_MSG is set to '$LOCKSCREEN_MSG'";
-    defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText $LOCKSCREEN_MSG
-fi
-
 # Disable the “Application Downloaded from Internet. Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
@@ -225,9 +217,6 @@ defaults write com.apple.Terminal "Startup Window Settings" -data "Homebrew"
 ####################
 # OTHER
 ####################
-
-# Disable sleep
-sudo systemsetup -setcomputersleep Never
 
 # Empty Trash securely by default
 defaults write com.apple.finder EmptyTrashSecurely -bool true
