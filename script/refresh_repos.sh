@@ -29,18 +29,18 @@ for REPO in ${REPOLIST}; do
     echo "REPO: ${REPONAME} : ${REPO}"
     echo "--------------------------------------------------------------------------------"
     echo
-    [[ -d ${REPODIR}/${REPONAME} ]] || git clone ${REPO} 2&>/dev/null
+    [[ -d ${REPODIR}/${REPONAME} ]] || git clone ${REPO} 2>/dev/null
     BRANCH=`git -C ${REPODIR}/${REPONAME} status|awk -F " " '{print $3}'|head -n 1`
     if [[ $BRANCH == "master" ]]; then
         # echo "${REPODIR}/${REPONAME}:    UPDATING ${BRANCH}"
         git -C ${REPODIR}/${REPONAME} pull origin $BRANCH
-    elif [[ $BRANCH == "" ]]; then 
+    elif [[ $BRANCH == "" ]]; then
         echo "${REPODIR}/${REPONAME}:  NOT A GIT REPO"
     else
         # echo "${REPODIR}/${REPONAME}:    UPDATING master FIRST, THEN ${BRANCH}"
-        git -C ${REPODIR}/${REPONAME} checkout master && 
-        git -C ${REPODIR}/${REPONAME} pull origin master 
-        git -C ${REPODIR}/${REPONAME} checkout $BRANCH && 
+        git -C ${REPODIR}/${REPONAME} checkout master &&
+        git -C ${REPODIR}/${REPONAME} pull origin master
+        git -C ${REPODIR}/${REPONAME} checkout $BRANCH &&
         git -C ${REPODIR}/${REPONAME} pull origin $BRANCH
     fi
 done
