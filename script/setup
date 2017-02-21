@@ -24,6 +24,7 @@ function symlink_dirs() {
 
 mkdir -p ~/.dotfiles/backup
 mkdir -p ~/.dotfiles/private/{personal,work}
+chmod 700 ~/.dotfiles/private/{personal,work}
 
 symlink_dirs ~/.dotfiles/link ~
 symlink_dirs ~/Dropbox/scripts/private_dotfiles/personal ~/.dotfiles/private/personal
