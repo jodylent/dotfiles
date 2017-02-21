@@ -30,3 +30,4 @@ symlink_dirs ~/Dropbox/scripts/private_dotfiles/personal ~/.dotfiles/private/per
 symlink_dirs ~/Dropbox/scripts/private_dotfiles/grubhub ~/.dotfiles/private/work
 
 git config --global url.ssh://git@github.com/.insteadOf https://github.com/
+git remote set-url origin git@github.com:jodylent/dotfiles.git
