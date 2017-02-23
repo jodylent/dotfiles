@@ -28,7 +28,7 @@ function enable_ntfs() {
 
 #### GIT ALIASES ####
 alias gs='git status'
-alias gsd='echo; git status; echo; echo; date; echo'
+alias gsd='echo; git branch; echo; git status; echo; git log -1; echo; echo "CURRENT TIME: `date`"; echo'
 alias gbc="git status | awk '{print \$3}' | head -n 1 | pbcopy"
 alias gboth='git checkout master && git pull origin master && git checkout develop && git pull origin develop'
 
