@@ -33,5 +33,20 @@ alias gbc="git status | awk '{print \$3}' | head -n 1 | pbcopy"
 alias gboth='git checkout master && git pull origin master && git checkout develop && git pull origin develop'
 
 #### APP ALIASES ####
+alias pep8='pep8 --max-line-length=240'
 alias subldot='/usr/local/bin/subl --project ~/Dropbox/scripts/sync/sublime/dotfiles.sublime-project'
+function sublproj(){
+    PROJ_PATH=~/Dropbox/scripts/sync/sublime/
+    PROJ=$1
+    if [[ -f ${PROJ_PATH}/${PROJ}.sublime-project ]]; then
+        subl -n --project ${PROJ_PATH}/${PROJ}.sublime-project
+    else
+        echo "Project: '${PROJ}' does not exist in PROJ_PATH: '${PROJ_PATH}'"
+        if [[ -d ${REPODIR}/${PROJ} ]]; then
+            subl -n ${REPODIR}/${PROJ}
+        else
+            echo "Project: '${PROJ}' does not exist in REPODIR: '${REPODIR}'"
+        fi
+    fi
+}
 alias veracrypt='/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text'
