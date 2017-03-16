@@ -35,7 +35,7 @@ alias gboth='git checkout master && git pull origin master && git checkout devel
 #### APP ALIASES ####
 alias pep8='pep8 --max-line-length=240'
 alias subldot='/usr/local/bin/subl --project ~/Dropbox/scripts/sync/sublime/dotfiles.sublime-project'
-function sublproj(){
+function spj(){
     PROJ_PATH=~/Dropbox/scripts/sync/sublime/
     PROJ=$1
     if [[ -f ${PROJ_PATH}/${PROJ}.sublime-project ]]; then
