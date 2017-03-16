@@ -148,6 +148,24 @@ fi
 ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
 
 
+########################################
+# Install from Mac App Store via `mas`
+# 1053031090 Boxy (1.2.1)
+# 1055307502 2STP Companion (2.0.0)
+########################################
+read -p "ICLOUD_USERNAME: " ICLOUD_USERNAME
+read -p "ICLOUD_PASSWORD: " ICLOUD_PASSWORD
+if [ -z ${ICLOUD_PASSWORD+x} ]; then
+    echo "ICLOUD_PASSWORD is unset"
+    exit 1
+else
+    mas signin ${ICLOUD_USERNAME} "${ICLOUD_PASSWORD}"
+    unset ICLOUD_USERNAME ICLOUD_PASSWORD
+    mas install 1053031090
+    mas install 1055307502
+    mas upgrade
+
+
 ####################
 # Cleanup
 ####################
