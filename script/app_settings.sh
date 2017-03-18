@@ -155,6 +155,7 @@ ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/loc
 ########################################
 read -p "ICLOUD_USERNAME: " ICLOUD_USERNAME
 read -p "ICLOUD_PASSWORD: " ICLOUD_PASSWORD
+
 if [ -z ${ICLOUD_PASSWORD+x} ]; then
     echo "ICLOUD_PASSWORD is unset"
     exit 1
@@ -164,7 +165,7 @@ else
     mas install 1053031090
     mas install 1055307502
     mas upgrade
-
+fi
 
 ####################
 # Cleanup
