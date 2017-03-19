@@ -154,7 +154,7 @@ ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/loc
 # 1055307502 2STP Companion (2.0.0)
 ########################################
 read -p "ICLOUD_USERNAME: " ICLOUD_USERNAME
-read -p "ICLOUD_PASSWORD: " ICLOUD_PASSWORD
+read -s -p "ICLOUD_PASSWORD: " ICLOUD_PASSWORD
 
 if [ -z ${ICLOUD_PASSWORD+x} ]; then
     echo "ICLOUD_PASSWORD is unset"
