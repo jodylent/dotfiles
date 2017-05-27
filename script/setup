@@ -38,14 +38,20 @@ git config --global url.ssh://git@github.com/.insteadOf https://github.com/
 git config --global url.ssh://git@${COMPANY_REPOMGMT_URL}/.insteadOf https://${COMPANY_REPOMGMT_URL}/
 
 # Pip is installed thanks to brew!
+brew install openssl --force
+brew reinstall python --with-brewed-openssl
+python -m pip install --upgrade --force pip
+pip install setuptools
+pip install setuptools --upgrade
+
 if [ -f ~/.dotfiles/script/pip-requirements.txt ]; then
-    pip install --upgrade pip
+    pip install --upgrade --force pip
     pip install --user python -r ~/.dotfiles/script/pip-requirements.txt --upgrade
 fi
 
 if [ -f ~/.dotfiles/script/pip3-requirements.txt ]; then
-    pip3 install --upgrade pip3
-    pip3 install --user python -r ~/.dotfiles/script/pip-requirements.txt --upgrade
+    pip3 install --upgrade --force pip3
+    pip3 install --user python -r ~/.dotfiles/script/pip3-requirements.txt --upgrade
 fi
 
 # Install apps
