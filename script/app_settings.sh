@@ -41,58 +41,7 @@ osascript -e 'tell application "System Events" to make login item at end with pr
 # Karabiner only works on mac OS 10.9-11, not on Sierra yet, so we use the beta/non-pretty dev product
 # https://pqrs.org/osx/karabiner/
 mkdir -p ~/.config/karabiner
-cat > ~/.config/karabiner/karabiner.json << EOF
-{
-    "global": {
-        "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true,
-        "show_profile_name_in_menu_bar": false
-    },
-    "profiles": [
-        {
-            "devices": [
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 628,
-                        "vendor_id": 1452
-                    },
-                    "ignore": true
-                }
-            ],
-            "fn_function_keys": {
-                "f1": "display_brightness_decrement",
-                "f10": "mute",
-                "f11": "volume_decrement",
-                "f12": "volume_increment",
-                "f2": "display_brightness_increment",
-                "f3": "mission_control",
-                "f4": "launchpad",
-                "f5": "illumination_decrement",
-                "f6": "illumination_increment",
-                "f7": "rewind",
-                "f8": "play_or_pause",
-                "f9": "fastforward"
-            },
-            "name": "MSComfortCurve4000",
-            "selected": true,
-            "simple_modifications": {
-                "application": "right_option",
-                "caps_lock": "left_control",
-                "left_command": "left_option",
-                "left_option": "left_command",
-                "right_option": "right_command"
-            },
-            "virtual_hid_keyboard": {
-                "caps_lock_delay_milliseconds": 0,
-                "keyboard_type": "ansi"
-            }
-        }
-    ]
-}
-EOF
+ln -sf ~/Dropbox/scripts/sync/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Karabiner-Elements", hidden:false}'
 
 
