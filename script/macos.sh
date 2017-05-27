@@ -11,9 +11,11 @@
 
 echo "#### MAC SETTINGS BEGINNING #####"
 
+
 ####################
 # GlobalPreferences
 ####################
+echo "## GlobalPreferences START ##"
 
 # Set computer name (as done via System Preferences → Sharing)
 
@@ -37,10 +39,13 @@ defaults write com.apple.dock expose-animation-duration -float 0.1
 # (i.e. use the old Exposé behavior instead)
 defaults write com.apple.dock expose-group-by-app -bool false
 
+echo "## GlobalPreferences END ##"
+
 
 ####################
 # DOCK
 ####################
+echo "## DOCK START ##"
 
 # Set the icon size of Dock items to 36 pixels
 defaults write com.apple.dock tilesize -int 36
@@ -54,10 +59,13 @@ defaults write com.apple.dock launchanim -bool false
 # No bouncing
 defaults write com.apple.dock no-bouncing -bool true
 
+echo "## DOCK END ##"
+
 
 ####################
 # FINDER
 ####################
+echo "## FINDER START ##"
 
 # Use list view in all Finder windows by default
 # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
@@ -98,10 +106,13 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
 # Bounce Finder
 killall Finder
+echo "## FINDER END ##"
+
 
 ####################
 # MISSON CONTROL
 ####################
+echo "## MISSON CONTROL START ##"
 
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
@@ -121,10 +132,14 @@ defaults write com.apple.dock showhidden -bool true
 # Disable the Launchpad gesture (pinch with thumb and three fingers)
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
+echo "## MISSON CONTROL END ##"
+
 
 ####################
 # KEYBOARD
 ####################
+echo "## KEYBOARD START ##"
+
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
@@ -134,10 +149,13 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/nul
 
 # Key Repeat to fastest in macOS 10.12 (Sierra)
 defaults write NSGlobalDomain KeyRepeat -int 2
+echo "## KEYBOARD END ##"
+
 
 ####################
 # TRACKPAD
 ####################
+echo "## TRACKPAD START ##"
 
 # Trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -186,10 +204,13 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeF
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerDoubleTapGesture -int 1
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
 
+echo "## TRACKPAD END ##"
+
 
 ####################
 # SCREEN
 ####################
+echo "## SCREEN START ##"
 
 # Require password immediately after sleep or screen saver begins
 defaults write com.apple.screensaver askForPassword -int 1
@@ -201,10 +222,13 @@ defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
 
+echo "## SCREEN END ##"
+
 
 ####################
 # TERMINAL
 ####################
+echo "## TERMINAL START ##"
 
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
@@ -213,10 +237,13 @@ defaults write com.apple.terminal StringEncodings -array 4
 defaults write com.apple.Terminal "Default Window Settings" -data "Homebrew"
 defaults write com.apple.Terminal "Startup Window Settings" -data "Homebrew"
 
+echo "## TERMINAL END ##"
+
 
 ####################
 # OTHER
 ####################
+echo "## OTHER START ##"
 
 # Empty Trash securely by default
 defaults write com.apple.finder EmptyTrashSecurely -bool true
@@ -236,6 +263,8 @@ defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/C
 
 # Show volume in menu bar
 defaults write com.apple.systemuiserver menuExtras -array-add "/System/Library/CoreServices/Menu Extras/Volume.menu"
+
+echo "## OTHER END ##"
 
 
 ####################
