@@ -40,14 +40,17 @@ git config --global url.ssh://git@${COMPANY_REPOMGMT_URL}/.insteadOf https://${C
 # Pip is installed thanks to brew!
 if [ -f ~/.dotfiles/script/pip-requirements.txt ]; then
     pip install --upgrade pip
-    pip install --user python -r ~/.dotfiles/script/pip-requirements.txt
     pip install --user python -r ~/.dotfiles/script/pip-requirements.txt --upgrade
 fi
 
 if [ -f ~/.dotfiles/script/pip3-requirements.txt ]; then
     pip3 install --upgrade pip3
-    pip3 install --user python -r ~/.dotfiles/script/pip-requirements.txt
     pip3 install --user python -r ~/.dotfiles/script/pip-requirements.txt --upgrade
+fi
+
+# Install apps
+if [ -f ~/.dotfiles/script/Brewfile ]; then
+    brew bundle --file=~/.dotfiles/script/Brewfile
 fi
 
 # Mac settings
@@ -63,6 +66,11 @@ fi
 # Git repos, based on list of `git remote get-url origin` values
 if [ -f ~/.dotfiles/script/refresh_repos.sh ]; then
     echo "#### REPO SYNC BEGINNING #####"
+    source .bash_profile
+    mkdir -p ~/dev
+    cd ~/dev
+    for repo in ${REPOLIST}; do git clone ${repo}; done
+    cd
     source ~/.dotfiles/script/refresh_repos.sh 2>&1
     echo "#### REPO SYNC COMPLETE #####"
 fi

@@ -1,0 +1,48 @@
+########################################
+# Jody Lent
+# Brewfile for building a new Mac
+########################################
+
+# Handled via Strap (https://github.com/MikeMcQuaid/strap):
+# Install Prereqs: Xcode, brew, cask and pip
+# cask is installed via tap, pip comes with brew's python install
+tap 'homebrew/core'
+tap 'caskroom/cask'
+
+# Packages
+brew 'awscli'
+brew 'git'
+brew 'mas'
+brew 'openssl'
+brew 'python'
+brew 'python3'
+brew 'tree'
+brew 'wget'
+
+# Apps
+cask 'beardedspice'
+cask 'caffeine'
+cask 'charles'
+cask 'docker'
+cask 'dropbox'
+cask 'firefox'
+cask 'flux'
+cask 'google-chrome'
+cask 'hipchat'
+cask 'karabiner-elements'
+cask 'macdown'
+cask 'macid'
+# cask 'macpass'
+cask 'osxfuse'
+cask 'postman'
+cask 'slack'
+cask 'spectacle'
+cask 'steam'
+cask 'sublime-text'
+cask 'tunnelblick'
+cask 'veracrypt'
+cask 'vlc'
+
+# UT
+cask 'xquartz'
+brew 'wine'
