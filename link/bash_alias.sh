@@ -31,6 +31,7 @@ alias gs='git status'
 alias gsd='echo; git branch; echo; git status; echo; git log -1; echo; echo "CURRENT TIME: `date`"; echo'
 alias gbc="git status | awk '{print \$3}' | head -n 1 | pbcopy"
 alias gboth='git checkout master && git pull origin master && git checkout develop && git pull origin develop'
+alias gbranches='for REPO in `ls ${REPODIR}`; do echo "-- ${REPO} --"; git -C ${REPODIR}/${REPO} branch; done'
 
 #### APP ALIASES ####
 alias pep8='pep8 --max-line-length=240'
