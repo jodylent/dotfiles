@@ -40,7 +40,9 @@ osascript -e 'tell application "System Events" to make login item at end with pr
 
 # Karabiner only works on mac OS 10.9-11, not on Sierra yet, so we use the beta/non-pretty dev product
 # https://pqrs.org/osx/karabiner/
+killall Karabiner-Elements
 mkdir -p ~/.config/karabiner
+rm -f  ~/.config/karabiner/karabiner.json
 ln -sf ~/Dropbox/scripts/sync/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Karabiner-Elements", hidden:false}'
 
@@ -102,19 +104,9 @@ ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/loc
 # 1053031090 Boxy (1.2.1)
 # 1055307502 2STP Companion (2.0.0)
 ########################################
-read -p "ICLOUD_USERNAME: " ICLOUD_USERNAME
-read -s -p "ICLOUD_PASSWORD: " ICLOUD_PASSWORD
-
-if [ -z ${ICLOUD_PASSWORD+x} ]; then
-    echo "ICLOUD_PASSWORD is unset"
-    exit 1
-else
-    mas signin ${ICLOUD_USERNAME} "${ICLOUD_PASSWORD}"
-    unset ICLOUD_USERNAME ICLOUD_PASSWORD
-    mas install 1053031090
-    mas install 1055307502
-    mas upgrade
-fi
+mas install 1053031090
+mas install 1055307502
+mas upgrade
 
 ####################
 # Cleanup
