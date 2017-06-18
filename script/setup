@@ -38,14 +38,12 @@ git config --global url.ssh://git@github.com/.insteadOf https://github.com/
 git config --global url.ssh://git@${COMPANY_REPOMGMT_URL}/.insteadOf https://${COMPANY_REPOMGMT_URL}/
 
 # Pip is installed thanks to brew!
-brew install openssl --force
-brew reinstall python --with-brewed-openssl
+brew install openssl --upgrade --force
+brew reinstall python # --with-brewed-openssl is unnecessary in Homebrew 1.2(?)+
 python -m pip install --upgrade --force pip
-pip install setuptools
-pip install setuptools --upgrade
+pip install setuptools --upgrade --force
 
 if [ -f ~/.dotfiles/script/pip-requirements.txt ]; then
-    pip install --upgrade --force pip
     pip install --user python -r ~/.dotfiles/script/pip-requirements.txt --upgrade
 fi
 
