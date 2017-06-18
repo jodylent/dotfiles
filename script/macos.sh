@@ -151,6 +151,10 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/nul
 defaults write NSGlobalDomain KeyRepeat -int 2
 echo "## KEYBOARD END ##"
 
+# smart quotes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+# smart dashes
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 ####################
 # TRACKPAD
