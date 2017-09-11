@@ -26,13 +26,17 @@ function enable_ntfs() {
     diskutil mount "${VOLUME_NAME}"
 }
 
+# Stupid Homebrew 1.3.2
+alias python=/usr/local/bin/python2
+alias pip=/usr/local/bin/pip2
+
 #### GIT ALIASES ####
 alias gs='git status'
 alias gsd='echo; git branch; echo; git status; echo; git log -1; echo; echo "CURRENT TIME: `date`"; echo'
 alias gbc="git status | awk '{print \$3}' | head -n 1 | pbcopy"
-alias gboth='git checkout master && git pull origin master && git checkout develop && git pull origin develop'
-alias gbranches='for REPO in `ls ${REPODIR}`; do echo "-- ${REPO} --"; git -C ${REPODIR}/${REPO} branch; done'
+alias gbranches='for REPO in `ls ${REPODIR}`; do echo "${REPO}" | tr [:lower:] [:upper:]; git -C ${REPODIR}/${REPO} branch; echo; done'
 alias fthisbranch='gbc && git checkout master && git pull && git branch -d $(pbpaste)'
+alias reupstream='gbc && git branch --set-upstream-to=origin/$(pbpaste) $(pbpaste)'
 
 #### APP ALIASES ####
 alias pep8='pep8 --max-line-length=240'
