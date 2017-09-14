@@ -27,7 +27,8 @@ function enable_ntfs() {
 }
 
 # Stupid Homebrew 1.3.2
-alias python=/usr/local/bin/python2
+ln -sf /usr/local/bin/python2 /usr/local/bin/python
+# alias python=/usr/local/bin/python2
 alias pip=/usr/local/bin/pip2
 
 #### GIT ALIASES ####
