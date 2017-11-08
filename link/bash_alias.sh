@@ -35,7 +35,7 @@ alias pip=/usr/local/bin/pip2
 alias gs='git status'
 alias gsd='echo; git branch; echo; git status; echo; git log -1; echo; echo "CURRENT TIME: `date`"; echo'
 alias gbc="git status | awk '{print \$3}' | head -n 1 | pbcopy"
-alias gbranches='for REPO in `ls ${REPODIR}`; do echo "${REPO}" | tr [:lower:] [:upper:]; git -C ${REPODIR}/${REPO} branch; echo; done'
+alias gbranches='echo; for REPO in `ls ${REPODIR}`; do unset BRANCH_CNT; BRANCH_CNT=`git -C ${REPODIR}/${REPO} branch 2>/dev/null | wc -l | tr -d '[:space:]'`; if [[ ${BRANCH_CNT} != "1" ]] && [[ ${BRANCH_CNT} != "0" ]] ; then echo "${REPO}" | tr [:lower:] [:upper:]; git -C ${REPODIR}/${REPO} branch; echo; fi; done'
 alias fthisbranch='gbc && git checkout master && git pull && git branch -d $(pbpaste)'
 alias reupstream='gbc && git branch --set-upstream-to=origin/$(pbpaste) $(pbpaste)'
 
