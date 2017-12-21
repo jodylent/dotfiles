@@ -26,6 +26,7 @@ brew 'wget'
 # Apps
 cask 'beardedspice'
 cask 'charles'
+cask 'cockatrice'
 cask 'docker'
 cask 'dropbox'
 cask 'firefox'
