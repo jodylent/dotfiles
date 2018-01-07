@@ -8,7 +8,6 @@
 # cask is installed via tap, pip comes with brew's python install
 tap 'homebrew/core'
 tap 'caskroom/cask'
-tap 'rockymadden/rockymadden'  # for slack-cli
 
 # Packages
 brew 'awscli'
@@ -19,13 +18,11 @@ brew 'openssl'
 brew 'python2'
 brew 'python3'
 brew 'shellcheck'
-brew 'slack-cli'
 brew 'tree'
 brew 'wget'
 
 # Apps
 cask 'beardedspice'
-cask 'charles'
 cask 'cockatrice'
 cask 'docker'
 cask 'dropbox'
@@ -39,7 +36,6 @@ cask 'macid'
 cask 'macpass'
 cask 'osxfuse'
 cask 'postman'
-cask 'quadrosync'
 cask 'slack'
 cask 'spectacle'
 cask 'steam'
