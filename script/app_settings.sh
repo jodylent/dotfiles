@@ -12,6 +12,14 @@ echo "#### APP SETTINGS BEGINNING #####"
 
 
 ####################
+# Python
+####################
+# Stupid Homebrew 1.3.2
+cp /usr/local/bin/python2 /usr/local/bin/python
+cp /usr/local/bin/pip2 /usr/local/bin/pip
+
+
+####################
 # Login items
 ####################
 

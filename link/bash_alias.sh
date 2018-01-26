@@ -26,10 +26,19 @@ function enable_ntfs() {
     diskutil mount "${VOLUME_NAME}"
 }
 
+function snek () {
+    python -c "import re
+_underscorer1 = re.compile(r'(.)([A-Z][a-z]+)')
+_underscorer2 = re.compile('([a-z0-9])([A-Z])')
+subbed = _underscorer1.sub(r'\1_\2', '$1')
+print(_underscorer2.sub(r'\1_\2', subbed).lower())"
+}
+
 # Stupid Homebrew 1.3.2
-ln -sf /usr/local/bin/python2 /usr/local/bin/python
-# alias python=/usr/local/bin/python2
-alias pip=/usr/local/bin/pip2
+# cp /usr/local/bin/python2 /usr/local/bin/python
+# cp /usr/local/bin/pip2 /usr/local/bin/pip
+# unalias python
+# unalias pip
 
 #### GIT ALIASES ####
 alias gs='git status'
