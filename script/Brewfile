@@ -21,6 +21,7 @@ brew 'python2'
 brew 'python3'
 brew 'shellcheck'
 brew 'tree'
+brew 'tlde'
 brew 'wget'
 
 # Apps
