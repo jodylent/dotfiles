@@ -11,10 +11,12 @@ tap 'caskroom/cask'
 
 # Packages
 brew 'awscli'
+brew 'curl'
 brew 'git'
 brew 'jq'
 brew 'mas'
 brew 'openssl'
+brew 'pyenv'
 brew 'python2'
 brew 'python3'
 brew 'shellcheck'
@@ -23,17 +25,21 @@ brew 'wget'
 
 # Apps
 cask 'beardedspice'
+cask 'blue-jeans'
 cask 'cockatrice'
 cask 'docker'
 cask 'dropbox'
 cask 'firefox'
 cask 'flux'
+cask 'google-hangouts'
 cask 'google-chrome'
+cask 'java'
 cask 'karabiner-elements'
 cask 'keepingyouawake'
 cask 'macdown'
 cask 'macid'
 cask 'macpass'
+cask 'openemu'
 cask 'osxfuse'
 cask 'postman'
 cask 'slack'
@@ -47,3 +53,7 @@ cask 'vlc'
 # UT
 cask 'xquartz'
 brew 'wine'
+
+# MAScli
+mas "2STP Companion", id: 1055307502
+mas "Boxy", id: 1053031090
