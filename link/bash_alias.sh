@@ -54,6 +54,9 @@ alias subldot='/usr/local/bin/subl --project ~/Dropbox/scripts/sync/sublime/dotf
 function spj(){
     PROJ_PATH=~/Dropbox/scripts/sync/sublime/
     PROJ=$1
+    if [[ "${PROJ}" == "" ]]; then
+        PROJ=$(basename `pwd`)
+    fi
     if [[ -f ${PROJ_PATH}/${PROJ}.sublime-project ]]; then
         subl -n --project ${PROJ_PATH}/${PROJ}.sublime-project
     else
