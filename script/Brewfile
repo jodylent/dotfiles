@@ -23,6 +23,7 @@ brew 'shellcheck'
 brew 'tree'
 brew 'tlde'
 brew 'wget'
+brew 'zsh'
 
 # Apps
 cask 'beardedspice'
