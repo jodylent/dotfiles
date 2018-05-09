@@ -35,11 +35,33 @@ alias resource='source ~/.zshrc'
 
 #### GIT ALIASES ####
 alias gs='git status'
-alias gsd='echo; git branch; echo; git status; echo; git log -1; echo; echo "CURRENT TIME: `date`"; echo'
+alias gsd='echo; git --no-pager branch; echo; git status; echo; git --no-pager log -1; echo; echo "CURRENT TIME: `date`"; echo'
 alias gbc="git status | awk '{print \$3}' | head -n 1 | pbcopy"
-# alias gbranches='echo; for REPO in `ls ${REPODIR}`; do unset BRANCH_CNT; BRANCH_CNT=`git -C ${REPODIR}/${REPO} branch 2>/dev/null | wc -l | tr -d '[:space:]'`; if [[ ${BRANCH_CNT} != "1" ]] && [[ ${BRANCH_CNT} != "0" ]] ; then echo "${REPO}" | tr [:lower:] [:upper:]; git -C ${REPODIR}/${REPO} branch; echo; fi; done'
+# alias gbranches='echo; for REPO in `ls ${REPODIR}`; do unset BRANCH_CNT; BRANCH_CNT=`git -C ${REPODIR}/${REPO} --no-pager branch 2>/dev/null | wc -l | tr -d '[:space:]'`; if [[ ${BRANCH_CNT} != "1" ]] && [[ ${BRANCH_CNT} != "0" ]] ; then echo "${REPO}" | tr [:lower:] [:upper:]; git -C ${REPODIR}/${REPO} --no-pager branch; echo; fi; done'
 alias fthisbranch='gbc && git checkout master && git pull && git branch -d $(pbpaste)'
+
+function remaster(){
+    BRANCH=$(git status | awk '{print $3}' | head -n 1)
+    git checkout master
+    git pull --prune
+    git checkout ${BRANCH}
+    git rebase $1 master
+}
+
 alias reupstream='gbc && git branch --set-upstream-to=origin/$(pbpaste) $(pbpaste)'
+
+function gbranches(){
+    echo
+    for REPO in $(ls ${REPODIR}); do
+        BRANCH_CNT=$(git -C ${REPODIR}/${REPO} --no-pager branch 2>/dev/null | wc -l | tr -d '[:space:]')
+        if [[ ${BRANCH_CNT} != "1" ]] && [[ ${BRANCH_CNT} != "0" ]] ; then
+            echo "${REPO}" | tr '[a-z]' '[A-Z]' 2>/dev/null ;
+            git -C ${REPODIR}/${REPO} --no-pager branch;
+            echo;
+        fi;
+    done
+}
+
 
 #### APP ALIASES ####
 alias pep8='pep8 --max-line-length=240'

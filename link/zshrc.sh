@@ -23,7 +23,7 @@ ZSH_THEME="awesomepanda"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -70,7 +70,9 @@ plugins=(
   docker
   fabric
   git
+  pyenv
   python
+  virtualenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -103,6 +105,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Fuck you, I *LIKE* my prompt that way
+# export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 setopt shwordsplit
 source ~/.alias
