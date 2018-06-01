@@ -61,6 +61,7 @@ function gbranches(){
         fi;
     done
 }
+alias gbr=gbranches
 
 
 #### APP ALIASES ####
