@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 ########################################
 # Jody Lent
 # ~/.dotfiles/link/shrc.sh

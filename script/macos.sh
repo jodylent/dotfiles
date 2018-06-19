@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 ########################################
 # Jody Lent
 # Script for building a new Mac

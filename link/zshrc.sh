@@ -108,7 +108,14 @@ source $ZSH/oh-my-zsh.sh
 
 # Fuck you, I *LIKE* my prompt that way
 # export VIRTUAL_ENV_DISABLE_PROMPT=1
+# export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 
 setopt shwordsplit
 source ~/.alias
 source ~/.shrc
+
+# pyenv init for future use
+# pyenv darwin
+# if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi

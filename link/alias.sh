@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 ########################################
 # Jody Lent
 # ~/.dotfiles/link/alias.sh
@@ -37,8 +36,8 @@ alias resource='source ~/.zshrc'
 alias gs='git status'
 alias gsd='echo; git --no-pager branch; echo; git status; echo; git --no-pager log -1; echo; echo "CURRENT TIME: `date`"; echo'
 alias gbc="git status | awk '{print \$3}' | head -n 1 | pbcopy"
-# alias gbranches='echo; for REPO in `ls ${REPODIR}`; do unset BRANCH_CNT; BRANCH_CNT=`git -C ${REPODIR}/${REPO} --no-pager branch 2>/dev/null | wc -l | tr -d '[:space:]'`; if [[ ${BRANCH_CNT} != "1" ]] && [[ ${BRANCH_CNT} != "0" ]] ; then echo "${REPO}" | tr [:lower:] [:upper:]; git -C ${REPODIR}/${REPO} --no-pager branch; echo; fi; done'
 alias fthisbranch='gbc && git checkout master && git pull && git branch -d $(pbpaste)'
+alias vader="git push --force --no-verify"
 
 function remaster(){
     BRANCH=$(git status | awk '{print $3}' | head -n 1)
