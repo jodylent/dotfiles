@@ -67,6 +67,8 @@ alias gbr=gbranches
 
 
 #### APP ALIASES ####
+function dockerlogfile () {docker inspect --format='{{.LogPath}}' $1}
+
 alias pep8='pep8 --max-line-length=240'
 alias subldot='/usr/local/bin/subl --project ~/Dropbox/scripts/sync/sublime/dotfiles.sublime-project'
 function spj(){

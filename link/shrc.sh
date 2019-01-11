@@ -8,6 +8,7 @@
 ####     ENV
 ########################################
 export EDITOR='subl -w'
+export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 export HISTTIMEFORMAT="%D %T "
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 export REPODIR=~/dev
