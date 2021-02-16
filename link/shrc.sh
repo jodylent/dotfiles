@@ -11,6 +11,8 @@ export EDITOR='subl -w'
 export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 export HISTTIMEFORMAT="%D %T "
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+# Handle Homebrew: Refusing to link macOS provided/shadowed software: curl
+export PATH="/usr/local/opt/curl/bin:$PATH"
 export REPODIR=~/dev
 
 ########################################

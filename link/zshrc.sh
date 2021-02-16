@@ -73,8 +73,10 @@ plugins=(
   pyenv
   python
   virtualenv
+  zsh-completions
 )
 
+ZSH_DISABLE_COMPFIX=true
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -110,9 +112,16 @@ source $ZSH/oh-my-zsh.sh
 # export VIRTUAL_ENV_DISABLE_PROMPT=1
 # export PYENV_VIRTUALENV_DISABLE_PROMPT=0
 
+# echo "setopt"
 setopt shwordsplit
+setopt HIST_IGNORE_SPACE
+# echo "source ~/.alias"
 source ~/.alias
+# echo "source ~/.shrc"
 source ~/.shrc
+
+# https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion
+source <(kubectl completion zsh)
 
 # pyenv init for future use
 # pyenv darwin
@@ -142,3 +151,5 @@ bindkey -s "^[Ok" "+"
 bindkey -s "^[Om" "-"
 # bindkey -s "^[Oj" "*"
 # bindkey -s "^[Oo" "/"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

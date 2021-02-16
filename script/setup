@@ -36,44 +36,44 @@ git config --global push.default current # I like current > simple
 git config --global url.ssh://git@github.com/.insteadOf https://github.com/
 git config --global url.ssh://git@${COMPANY_REPOMGMT_URL}/.insteadOf https://${COMPANY_REPOMGMT_URL}/
 
-# Pip is installed thanks to brew!
-brew install openssl --upgrade --force
-brew reinstall python # --with-brewed-openssl is unnecessary in Homebrew 1.2(?)+
-python -m pip install --upgrade --force pip
-pip install setuptools --upgrade --force
+# # Pip is installed thanks to brew!
+# brew install openssl --upgrade --force
+# brew reinstall python # --with-brewed-openssl is unnecessary in Homebrew 1.2(?)+
+# python -m pip install --upgrade --force pip
+# pip install setuptools --upgrade --force
 
-if [ -f ~/.dotfiles/script/pip-requirements.txt ]; then
-    pip install --user python -r ~/.dotfiles/script/pip-requirements.txt --upgrade
-fi
+# if [ -f ~/.dotfiles/script/pip-requirements.txt ]; then
+#     pip install --user python -r ~/.dotfiles/script/pip-requirements.txt --upgrade
+# fi
 
-if [ -f ~/.dotfiles/script/pip3-requirements.txt ]; then
-    pip3 install --upgrade --force pip3
-    pip3 install --user python -r ~/.dotfiles/script/pip3-requirements.txt --upgrade
-fi
+# if [ -f ~/.dotfiles/script/pip3-requirements.txt ]; then
+#     pip3 install --upgrade --force pip3
+#     pip3 install --user python -r ~/.dotfiles/script/pip3-requirements.txt --upgrade
+# fi
 
-# Install apps
-if [ -f ~/.dotfiles/script/Brewfile ]; then
-    brew bundle --file=~/.dotfiles/script/Brewfile
-fi
+# # Install apps
+# if [ -f ~/.dotfiles/script/Brewfile ]; then
+#     brew bundle --file=~/.dotfiles/script/Brewfile
+# fi
 
-# Mac settings
-if [ -f ~/.dotfiles/script/macos.sh ]; then
-    source ~/.dotfiles/script/macos.sh
-fi
+# # Mac settings
+# if [ -f ~/.dotfiles/script/macos.sh ]; then
+#     source ~/.dotfiles/script/macos.sh
+# fi
 
-# App settings
-if [ -f ~/.dotfiles/script/app_settings.sh ]; then
-    source ~/.dotfiles/script/app_settings.sh
-fi
+# # App settings
+# if [ -f ~/.dotfiles/script/app_settings.sh ]; then
+#     source ~/.dotfiles/script/app_settings.sh
+# fi
 
-# Git repos, based on list of `git remote get-url origin` values
-if [ -f ~/.dotfiles/script/refresh_repos.sh ]; then
-    echo "#### REPO SYNC BEGINNING #####"
-    source .bash_profile
-    mkdir -p ~/dev
-    cd ~/dev
-    for repo in ${REPOLIST}; do git clone ${repo}; done
-    cd
-    source ~/.dotfiles/script/refresh_repos.sh 2>&1
-    echo "#### REPO SYNC COMPLETE #####"
-fi
+# # Git repos, based on list of `git remote get-url origin` values
+# if [ -f ~/.dotfiles/script/refresh_repos.sh ]; then
+#     echo "#### REPO SYNC BEGINNING #####"
+#     source .bash_profile
+#     mkdir -p ~/dev
+#     cd ~/dev
+#     for repo in ${REPOLIST}; do git clone ${repo}; done
+#     cd
+#     source ~/.dotfiles/script/refresh_repos.sh 2>&1
+#     echo "#### REPO SYNC COMPLETE #####"
+# fi
