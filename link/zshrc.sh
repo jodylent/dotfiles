@@ -151,5 +151,8 @@ bindkey -s "^[Ok" "+"
 bindkey -s "^[Om" "-"
 # bindkey -s "^[Oj" "*"
 # bindkey -s "^[Oo" "/"
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+
+# Load pyenv into the shell by adding
+# the following to ~/.zshrc:
+
+eval "$(pyenv init -)"
