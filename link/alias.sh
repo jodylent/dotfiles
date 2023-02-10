@@ -17,20 +17,6 @@ alias repofresh='~/.dotfiles/script/refresh_repos.sh'
 alias resource='source ~/.zshrc'
 # alias resource='source ~/.bash_profile'
 
-# function enable_ntfs() {
-#     VOLUME_NAME=$1
-#     VOLUME_UUID=`diskutil info \`diskutil list|grep -e "${VOLUME_NAME}"|awk '{print $NF}'\`|grep UUID|awk '{print $NF}'`
-#     FSTAB_STR="UUID=${VOLUME_UUID} none ntfs rw,auto,nobrowse"
-#     sudo cat ${FSTAB_STR} > /etc/fstab
-#     diskutil umount "${VOLUME_NAME}"
-#     diskutil mount "${VOLUME_NAME}"
-# }
-
-# Stupid Homebrew 1.3.2
-# cp /usr/local/bin/python2 /usr/local/bin/python
-# cp /usr/local/bin/pip2 /usr/local/bin/pip
-# unalias python
-# unalias pip
 
 #### GIT ALIASES ####
 alias gs='git status'
@@ -46,7 +32,7 @@ function remaster(){
     BRANCH=$(git status | awk '{print $3}' | head -n 1)
     git checkout master
     git pull --prune
-    git checkout ${BRANCH}
+    git checkout "${BRANCH}"
     git rebase $1 master
 }
 
@@ -54,11 +40,11 @@ alias reupstream='gbc && git branch --set-upstream-to=origin/$(pbpaste) $(pbpast
 
 function gbranches(){
     echo
-    for REPO in $(ls ${REPODIR}); do
-        BRANCH_CNT=$(git -C ${REPODIR}/${REPO} --no-pager branch 2>/dev/null | wc -l | tr -d '[:space:]')
-        if [[ ${BRANCH_CNT} != "1" ]] && [[ ${BRANCH_CNT} != "0" ]] ; then
+    for REPO in $(ls "${REPODIR}"); do
+        BRANCH_CNT=$(git -C "${REPODIR}/${REPO}" --no-pager branch 2>/dev/null | wc -l | tr -d '[:space:]')
+        if [[ "${BRANCH_CNT}" != "1" ]] && [[ "${BRANCH_CNT}" != "0" ]] ; then
             echo "${REPO}" | tr '[a-z]' '[A-Z]' 2>/dev/null ;
-            git -C ${REPODIR}/${REPO} --no-pager branch;
+            git -C "${REPODIR}/${REPO}" --no-pager branch;
             echo;
         fi;
     done
@@ -67,10 +53,10 @@ alias gbr=gbranches
 
 
 #### APP ALIASES ####
-function dockerlogfile () {docker inspect --format='{{.LogPath}}' $1}
+function dockerlogfile (){
+    docker inspect --format='{{.LogPath}}' $1
+}
 
-alias pep8='pep8 --max-line-length=240'
-alias subldot='/usr/local/bin/subl --project ~/Dropbox/scripts/sync/sublime/dotfiles.sublime-project'
 function spj(){
     PROJ_PATH=~/Dropbox/scripts/sync/sublime/
     PROJ=$1
@@ -88,7 +74,6 @@ function spj(){
         fi
     fi
 }
-alias veracrypt='/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text'
 
 
 #### VIRTUALENV HANDLING ####
