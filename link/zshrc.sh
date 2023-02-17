@@ -9,7 +9,7 @@
 
 # ==== PATH  setup PRE oh-my-zsh ===============================================
 
-eval $(/opt/homebrew/bin/brew shellenv)
+eval $($(which brew) shellenv)
 
 # Add pyenv executable to PATH and
 # enable shims by adding the following
