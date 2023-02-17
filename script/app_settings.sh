@@ -19,6 +19,7 @@ echo "#### APP SETTINGS BEGINNING #####"
 
 pyenv install 3.8.16
 pyenv install 3.9
+pyenv install 3.10
 pyenv install 3.11
 
 
@@ -26,7 +27,6 @@ pyenv install 3.11
 # Login items
 ####################
 
-osascript -e 'tell application "System Events" to make login item at end with properties {path:"/path/to/itemname", hidden:false}' > ~/.dotfiles/backup/list_loginitems.txt
 # Add items (commented but left for future use)
 # osascript -e 'tell application "System Events" to make login item at end with properties {path:"/path/to/itemname", hidden:false}'
 # Delete items (commented but left for future use)
@@ -44,7 +44,12 @@ osascript -e 'tell application "System Events" to make login item at end with pr
 
 # macos 13.2 -- SIP & friends have wrecked most of these ~/.config hacks
 # Try importing manually from ~/Dropbox/scripts/sync/karabiner/karabiner.json
-
+# Otherwise, hand map:
+# caps_lock       -> left_control
+# application     -> right_option
+# left_command    -> left_option
+# left_option     -> left_command
+# right_option    -> right_command
 
 ####################
 # Spectacle
@@ -61,10 +66,10 @@ osascript -e 'tell application "System Events" to make login item at end with pr
 
 # https://packagecontrol.io/docs/syncing
 
-SUBLIME_SETTINGS_PATH=~/Dropbox/sublime/User
-killall Sublime\ Text
-cd ~/Library/Application\ Support/Sublime\ Text/Packages/
-rm -r User
+SUBLIME_SETTINGS_PATH="${HOME}/Dropbox/sublime/User"
+killall "Sublime Text"
+cd "${HOME}/Library/Application Support/Sublime Text/Packages/"
+rm -r "./User"
 ln -s "${SUBLIME_SETTINGS_PATH}"
 
 # subl command comes in Brew these days
@@ -72,5 +77,6 @@ ln -s "${SUBLIME_SETTINGS_PATH}"
 ####################
 # Cleanup
 ####################
-git -C /Users/jlent/.dotfiles remote set-url origin git@github.com:jodylent/dotfiles.git
+git -C "${HOME}/.dotfiles" remote set-url origin git@github.com:jodylent/dotfiles.git
+
 echo "#### APP SETTINGS COMPLETE #####"

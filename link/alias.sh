@@ -58,7 +58,7 @@ function dockerlogfile (){
 }
 
 function spj(){
-    PROJ_PATH="${HOME}/Dropbox/sublime/User/projects/"
+    PROJ_PATH="${HOME}/Dropbox/sublime/User/projects"
     PROJ=$1
     if [[ "${PROJ}" == "" ]]; then
         PROJ=$(basename `pwd`)
