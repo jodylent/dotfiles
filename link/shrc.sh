@@ -21,7 +21,11 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
 # Handle Homebrew: Refusing to link macOS provided/shadowed software: curl
 export PATH="/usr/local/opt/curl/bin:$PATH"
 
-eval $($(which brew) shellenv)
+if [[ "$(arch)" == "arm64" ]]; then
+  eval $(/opt/homebrew/bin/brew shellenv);
+else
+  eval $($(which brew) shellenv);
+fi
 
 # Add pyenv executable to PATH and
 # enable shims by adding the following

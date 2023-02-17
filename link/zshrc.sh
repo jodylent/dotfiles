@@ -9,7 +9,12 @@
 
 # ==== PATH  setup PRE oh-my-zsh ===============================================
 
-eval $($(which brew) shellenv)
+
+if [[ "$(arch)" == "arm64" ]]; then
+  eval $(/opt/homebrew/bin/brew shellenv);
+else
+  eval $($(which brew) shellenv);
+fi
 
 # Add pyenv executable to PATH and
 # enable shims by adding the following
