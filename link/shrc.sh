@@ -34,6 +34,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
+# Rust setup
+source "$HOME/.cargo/env"
+eval "$(fastly --completion-script-zsh)"
 
 ########################################
 ####     ALIAS

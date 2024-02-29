@@ -44,3 +44,4 @@ shopt -s checkwinsize
 if [ -f "${HOME}/.shrc" ]; then
 . "${HOME}/.shrc"
 fi
+. "$HOME/.cargo/env"
