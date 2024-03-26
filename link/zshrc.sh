@@ -32,7 +32,15 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="awesomepanda"
+ZSH_THEME="awesomepanda"  # breaks with https://github.com/ohmyzsh/ohmyzsh/issues/1602
+# ZSH_THEME="edvardm"  # works without it
+
+# FIX awesomepanda prompt ohmyzsh#1602
+# FROM: PROMPT='%{${ret_status}%}%{$fg_bold[green]%} %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}$(svn_prompt_info)%{$reset_color%}'
+#   TO: PROMPT='%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)%{$fg_bold[green]%} %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}$(svn_prompt_info)%{$reset_color%}'
+PANDA_OLD='%{${ret_status}%}'
+PANDA_NEW='%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)'
+sed -i'' -e "s/${PANDA_OLD}/${PANDA_NEW}/g" "${ZSH}/themes/awesomepanda.zsh-theme"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -116,7 +124,9 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+# export TERM=xterm-256color  # provided by Terminal.app
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
