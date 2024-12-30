@@ -40,7 +40,7 @@ ZSH_THEME="awesomepanda"  # breaks with https://github.com/ohmyzsh/ohmyzsh/issue
 #   TO: PROMPT='%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)%{$fg_bold[green]%} %{$fg[cyan]%}%c %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%}$(svn_prompt_info)%{$reset_color%}'
 PANDA_OLD='%{${ret_status}%}'
 PANDA_NEW='%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)'
-sed -i'' -e "s/${PANDA_OLD}/${PANDA_NEW}/g" "${ZSH}/themes/awesomepanda.zsh-theme"
+# sed -i'' -e "s/${PANDA_OLD}/${PANDA_NEW}/g" "${ZSH}/themes/awesomepanda.zsh-theme"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load

@@ -42,4 +42,11 @@ for REPO in ${REPOLIST}; do
         git -C ${REPODIR}/${REPONAME} checkout $BRANCH &&
         git -C ${REPODIR}/${REPONAME} pull origin $BRANCH
     fi
+
 done
+
+echo
+echo "--------------------------------------------------------------------------------"
+echo "DONE: $(date)"
+echo "--------------------------------------------------------------------------------"
+echo
