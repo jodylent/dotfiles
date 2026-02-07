@@ -9,6 +9,9 @@
 # - For zsh, put stuff in ~/.zshrc, which is always executed.
 ########################################
 
+# Kiro CLI pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/bashrc.pre.bash" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/bashrc.pre.bash"
+export CLAUDE_AUTO_INIT=false
 
 ########################################
 ####     BASHOPTS
@@ -45,3 +48,6 @@ if [ -f "${HOME}/.shrc" ]; then
 . "${HOME}/.shrc"
 fi
 . "$HOME/.cargo/env"
+
+# Kiro CLI post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/bashrc.post.bash" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/bashrc.post.bash"
