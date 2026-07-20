@@ -9,8 +9,10 @@
 # - For zsh, put stuff in ~/.zshrc, which is always executed.
 ########################################
 
+# JL: do NOT run this trash, it massively slows down PROMPT
 # Kiro CLI pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.pre.bash" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.pre.bash"
+# [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.pre.bash" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.pre.bash"
+
 export CLAUDE_AUTO_INIT=false
 
 # if running bash
@@ -22,5 +24,6 @@ if [ -n "${BASH_VERSION}" ]; then
 fi
 . "$HOME/.cargo/env"
 
+# JL: do NOT run this trash, it massively slows down PROMPT
 # Kiro CLI post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.post.bash" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.post.bash"
+# [[ -f "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.post.bash" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/bash_profile.post.bash"

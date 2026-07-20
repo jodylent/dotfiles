@@ -7,36 +7,11 @@
 # TL;DR:
 # - For bash, put stuff in ~/.bashrc, and make ~/.bash_profile source it.
 # - For zsh, put stuff in ~/.zshrc, which is always executed.
+#
+# JL 2026-06-30: only use this file for linking in private dotfiles.
+# It's been years since I cared about bash, everything else -> zshrc
+#
 ########################################
-
-########################################
-####     ENV
-########################################
-export EDITOR='subl -w'
-export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
-export HISTTIMEFORMAT="%D %T "
-export REPODIR="${HOME}/dev"
-
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
-# Handle Homebrew: Refusing to link macOS provided/shadowed software: curl
-export PATH="/usr/local/opt/curl/bin:$PATH"
-
-if [[ "$(arch)" == "arm64" ]]; then
-  eval $(/opt/homebrew/bin/brew shellenv);
-else
-  eval $($(which brew) shellenv);
-fi
-
-# Add pyenv executable to PATH and
-# enable shims by adding the following
-# to ~/.profile and ~/.zprofile:
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-
-# Rust setup
-source "$HOME/.cargo/env"
-eval "$(fastly --completion-script-zsh)"
 
 ########################################
 ####     ALIAS
@@ -67,7 +42,3 @@ if [ -d "${HOME}/.dotfiles/private" ]; then
         # echo "FOLDER: $FOLDER"
     done
 fi
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

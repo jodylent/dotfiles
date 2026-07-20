@@ -3,16 +3,26 @@
 # ~/.dotfiles/link/zshrc.sh
 # The individual per-interactive-shell startup file
 ########################################
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Kiro CLI pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.pre.zsh"
+# ==============================================================================
+
+# ==== ENV config PRE oh-my-zsh ================================================
+
+# echo "$(date -u +%H:%M:%S.%NZ) start"
+
 export CLAUDE_AUTO_INIT=false
+export EDITOR='subl -w'
+export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
+export HISTTIMEFORMAT="%D %T "
+export REPODIR="${HOME}/dev"
 
 
 # ==== PATH  setup PRE oh-my-zsh ===============================================
 
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# echo "$(date -u +%H:%M:%S.%NZ) shellenv"
 
 if [[ "$(arch)" == "arm64" ]]; then
   eval $(/opt/homebrew/bin/brew shellenv);
@@ -20,15 +30,27 @@ else
   eval $($(which brew) shellenv);
 fi
 
+
+# Python
+
+# echo "$(date -u +%H:%M:%S.%NZ) pyenv"
 # Add pyenv executable to PATH and
 # enable shims by adding the following
 # to ~/.profile and ~/.zprofile:
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+eval "$(pyenv init --path)"             # add shims to PATH
+eval "$(pyenv init - --no-rehash zsh)"  # shell function, completions, etc.
+
+export PANTS_LOCAL_EXECUTION_ROOT_DIR=/tmp/pants
+
+# Rust
+
+source "$HOME/.cargo/env"
 
 # ==== END PATH setup PRE oh-my-zsh ============================================
 
+# echo "$(date -u +%H:%M:%S.%NZ) omz"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -60,7 +82,7 @@ CASE_SENSITIVE="true"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
+zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
@@ -111,10 +133,11 @@ plugins=(
   brew
   docker
   git
-  pyenv
   python
   virtualenv
 )
+
+# 2026-06-30 (JL): rm `pyenv` plugin due to multiple pyenv inits slowing terminal start
 
 # 2023-02-10 (JL): I don't remember what this is
 # ZSH_DISABLE_COMPFIX=true
@@ -156,7 +179,9 @@ setopt shwordsplit
 setopt HIST_IGNORE_SPACE
 
 # https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
+
+# echo "$(date -u +%H:%M:%S.%NZ) bindkey"
 
 # Keypad
 # 0 . Enter
@@ -183,7 +208,14 @@ bindkey -s "^[Om" "-"
 
 # echo "========== ${0}: source ~/.shrc =========="
 
+# echo "$(date -u +%H:%M:%S.%NZ) shrc"
 source "${HOME}/.shrc"
 
-# Kiro CLI post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/kiro-cli/shell/zshrc.post.zsh"
+# echo "$(date -u +%H:%M:%S.%NZ) sdkman"
+
+# JL: this is a lie, but fine, it can go EOF
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# echo "$(date -u +%H:%M:%S.%NZ) done"
